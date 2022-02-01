@@ -1,14 +1,20 @@
 {
-  "name": "playwright-session",
+  "name": "playwright-login",
   "version": "1.0.0",
-  "description": "",
+  "description": "Helper function to login and persist session when using playwright",
   "main": "index.js",
   "scripts": {
     "test": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "playwright",
+    "session",
+    "login",
+    "cookie",
+    "localStorage"
+  ],
+  "author": "Beeno Tung <aabbcc1241@yahoo.com.hk> (https://beeno-tung.surge.sh)",
+  "license": "BSD-2-Clause",
   "peerDependencies": {
     "playwright": "^1.15.1"
   },
@@ -18,5 +24,8 @@
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.5"
+  },
+  "directories": {
+    "example": "example"
   }
 }
