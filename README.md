@@ -2,6 +2,8 @@
 
 Helper function to login and persist session when using playwright
 
+[![npm Package Version](https://img.shields.io/npm/v/playwright-login.svg?maxAge=3600)](https://www.npmjs.com/package/playwright-login)
+
 ## License
 
 This project is licensed with [BSD-2-Clause](./LICENSE)
