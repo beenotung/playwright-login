@@ -12,5 +12,5 @@ test: node_modules/.bin/tsc src/index.ts
 
 publish: dist/index.js dist/index.d.ts
 	npm pack
-	echo npm version $@
-	echo npm publish
+	npm version $@
+	npm publish
