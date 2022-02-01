@@ -4,6 +4,50 @@ Helper function to login and persist session when using playwright
 
 [![npm Package Version](https://img.shields.io/npm/v/playwright-login.svg?maxAge=3600)](https://www.npmjs.com/package/playwright-login)
 
+## Typescript Signature
+
+```typescript
+export function restoreLoginContext(options: {
+  browser: Browser
+  storageFile: string
+  url: string // of the home page or login page
+  shouldLogin: (page: Page) => Promise<boolean>
+  login: (page: Page) => Promise<void>
+}): Promise<Page>
+```
+
+## Usage Example
+
+```typescript
+let storageFile = 'browserState.json'
+let url = 'https://example.net/login'
+let username = process.env.USERNAME!
+let password = process.env.PASSWORD!
+
+let browser = await chromium.launch()
+let page = await restoreLoginContext({
+  browser,
+  storageFile,
+  url,
+  shouldLogin: (page: Page) =>
+    page.evaluate(() => !!document.querySelector('#loginform')),
+  login: async page => {
+    await page.fill('#loginform [name="username"]', username)
+    await page.fill('#loginform [name="password"]', password)
+    await Promise.all([
+      page.click('#loginform [type="submit"]'),
+      page.waitForNavigation(),
+    ])
+  },
+})
+
+page.evaluate(() => {
+  // perform further operations that is only accessible after login
+})
+```
+
+Details refers to [example/demo.ts](./example/demo.ts)
+
 ## License
 
 This project is licensed with [BSD-2-Clause](./LICENSE)
