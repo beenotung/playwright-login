@@ -1,0 +1,7 @@
+Makefile
+*.tsbuildinfo
+pnpm-lock.yaml
+tsconfig.json
+*.tgz
+browserState.json
+src/
