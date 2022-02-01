@@ -27,5 +27,13 @@
   },
   "directories": {
     "example": "example"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beenotung/playwright-login.git"
+  },
+  "bugs": {
+    "url": "https://github.com/beenotung/playwright-login/issues"
+  },
+  "homepage": "https://github.com/beenotung/playwright-login#readme"
 }
