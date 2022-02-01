@@ -16,3 +16,4 @@ publish: dist/index.js dist/index.d.ts
 	[ ! -z "$$version" ] && \
 	npm version "$$version"
 	npm publish
+	git push --follow-tags
