@@ -12,7 +12,7 @@ test: node_modules/.bin/tsc src/index.ts
 
 publish: dist/index.js dist/index.d.ts
 	npm pack
-	read -p 'version [major/minor/patch]: ' version && \
+	@read -p 'version [major/minor/patch]: ' version && \
 	[ ! -z "$$version" ] && \
 	npm version "$$version"
 	npm publish
