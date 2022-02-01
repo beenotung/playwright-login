@@ -2,7 +2,8 @@
   "name": "playwright-login",
   "version": "1.0.0",
   "description": "Helper function to login and persist session when using playwright",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "tsc --noEmit"
   },
