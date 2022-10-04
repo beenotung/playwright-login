@@ -1,6 +1,6 @@
 {
   "name": "playwright-login",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Helper function to login and persist session when using playwright",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
