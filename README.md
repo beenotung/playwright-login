@@ -11,6 +11,7 @@ export function restoreLoginContext(options: {
   browser: Browser
   storageFile: string
   url: string // of the home page or login page
+  waitUntil?: 'load' | 'domcontentloaded' | 'networkidle'
   shouldLogin: (page: Page) => Promise<boolean>
   login: (page: Page) => Promise<void>
 }): Promise<Page>
@@ -19,16 +20,14 @@ export function restoreLoginContext(options: {
 ## Usage Example
 
 ```typescript
-let storageFile = 'browserState.json'
-let url = 'https://example.net/login'
 let username = process.env.USERNAME!
 let password = process.env.PASSWORD!
 
 let browser = await chromium.launch()
 let page = await restoreLoginContext({
   browser,
-  storageFile,
-  url,
+  storageFile: 'browserState.json',
+  url: 'https://example.net/login',
   shouldLogin: (page: Page) =>
     page.evaluate(() => !!document.querySelector('#loginform')),
   login: async page => {
@@ -41,7 +40,7 @@ let page = await restoreLoginContext({
   },
 })
 
-page.evaluate(() => {
+await page.evaluate(() => {
   // perform further operations that is only accessible after login
 })
 ```
